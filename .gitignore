@@ -1,0 +1,6 @@
+db.sqlite3
+.env
+pycache/
+media/
+venv/
+Profile_images/

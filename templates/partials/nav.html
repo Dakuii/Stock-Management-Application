@@ -1,0 +1,55 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-info bg-info">
+    {% if user.is_authenticated %}
+    <div class="container">
+        <a class="navbar-brand text-white" href="{% url 'tableau_de_bord-index' %}">
+            <i class="fas fa-plane"></i> ONDA-GDStock
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% if user.is_staff %}
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{% url 'tableau_de_bord-index' %}">Tableau De Bord <span class="sr-only">(current)</span></a>
+                </li>
+                {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{% url 'tableau_de_bord-index' %}">Commander<span class="sr-only">(current)</span></a>
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav ml-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'utilisateur-profile' %}">{{ user.username|capfirst }} Profil</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Formulaire de déconnexion avec apparence de lien -->
+                    <form action="{% url 'utilisateur-logout' %}" method="post" class="form-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-link text-white btn-link" style="background:none; border:none; padding:0; cursor:pointer;">
+                            Déconnexion
+                        </button>
+                    </form>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ml-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'utilisateur-register' %}">Inscription</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'utilisateur-login' %}">Connexion</a>
+                </li>
+            </ul>
+
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
