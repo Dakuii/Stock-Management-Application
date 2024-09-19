@@ -7,9 +7,9 @@ Project Features:
 - Order Management: Manage orders, including tracking and fulfillment.
 - Admin Interface: Provides a user-friendly dashboard for viewing and managing clients, products, and orders.
 - Technologies Used:
- - Backend: Django, Python
- - Database: SQLite
- - Frontend: HTML5, CSS3, JavaScript
- - Development Tools: Visual Studio, Git
+  - Backend: Django, Python
+  - Database: SQLite
+  - Frontend: HTML5, CSS3, JavaScript
+  - Development Tools: Visual Studio, Git
 
 This application simplifies the administrative tasks associated with stock management, offering a clean and efficient interface for businesses.
